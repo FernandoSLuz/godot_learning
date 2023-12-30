@@ -9,6 +9,8 @@ script = ExtResource("1_p7r85")
 
 [node name="Gate" parent="." instance=ExtResource("2_fpf2t")]
 
+[node name="Projectiles" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("3_w5vlh")]
 position = Vector2(342, 464)
 
