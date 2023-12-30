@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://5hilr1yqq22"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_p7r85"]
+[ext_resource type="Texture2D" uid="uid://temx6wl2tbir" path="res://graphics/objects/gate.png" id="3_4xsmt"]
+[ext_resource type="PackedScene" uid="uid://d1tjwciyfuwht" path="res://scenes/player/player.tscn" id="3_w5vlh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdsv1"]
+size = Vector2(852, 287)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_p7r85")
+
+[node name="Gate" type="StaticBody2D" parent="."]
+
+[node name="Image" type="Sprite2D" parent="Gate"]
+position = Vector2(515, -441)
+texture = ExtResource("3_4xsmt")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Gate"]
+polygon = PackedVector2Array(-924, -1219, -921, 130, -851, 267, -721, 334, 147, 335, 147, 101, 1010, 104, 1008, 337, 1862, 335, 2005, 262, 2072, 126, 2074, -1219)
+
+[node name="Area2D" type="Area2D" parent="Gate"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate/Area2D"]
+position = Vector2(576, 251.5)
+shape = SubResource("RectangleShape2D_wdsv1")
+
+[node name="player" parent="." instance=ExtResource("3_w5vlh")]
+position = Vector2(342, 464)
+
+[connection signal="body_entered" from="Gate/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Gate/Area2D" to="." method="_on_area_2d_body_exited"]

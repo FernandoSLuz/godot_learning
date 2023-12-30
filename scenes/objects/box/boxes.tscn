@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://bayh5tmagkn4w"]
+
+[ext_resource type="PackedScene" uid="uid://d2j0q81icm5a0" path="res://scenes/objects/box/box.tscn" id="1_e1yds"]
+
+[node name="Boxes" type="Node2D"]
+
+[node name="Box" parent="." instance=ExtResource("1_e1yds")]
+position = Vector2(197, 160)
+rotation = -0.541052
+
+[node name="Box2" parent="." instance=ExtResource("1_e1yds")]
+position = Vector2(95, 578)
+
+[node name="Box3" parent="." instance=ExtResource("1_e1yds")]
+position = Vector2(1027, 494)
+rotation = 0.663225
+
+[node name="Box4" parent="." instance=ExtResource("1_e1yds")]
+position = Vector2(608, 524)
+rotation = -1.19555
