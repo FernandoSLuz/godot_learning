@@ -12,14 +12,15 @@ func _on_player_exited_gate(body):
 	if(body.name == 'Player'):
 		print("body has exited: ", body)
 
-func _on_player_laser_shot(_character: CharacterBody2D, respawn: Vector2):
-	var laser = laser_scene.instantiate()
+func _on_player_laser_shot(respawn_position: Vector2, laser_direction: Vector2):
+	var laser = laser_scene.instantiate() as Area2D
+	laser.position = respawn_position
+	laser.rotation_degrees = rad_to_deg(laser_direction.angle())+90
+	laser.direction = laser_direction
 	$Projectiles.add_child(laser)
-	laser.position = respawn
-	print("laser shot: ", respawn)
 
-func _on_player_grenade_shot(_character: CharacterBody2D, respawn: Vector2):
-	var grenade = grenade_scene.instantiate()
+func _on_player_grenade_shot(respawn_position: Vector2, grenade_direction: Vector2):
+	var grenade = grenade_scene.instantiate() as RigidBody2D
+	grenade.position = respawn_position
+	grenade.linear_velocity = grenade_direction * grenade.speed
 	$Projectiles.add_child(grenade)
-	grenade.position = respawn
-	print("grenade shot: ", _character)
