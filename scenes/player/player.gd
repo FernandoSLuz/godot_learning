@@ -18,6 +18,7 @@ func _process(_delta):
 	#lase input
 	var player_direction = (get_global_mouse_position() - position).normalized()
 	if Input.is_action_just_pressed("primary_action") and can_laser:
+		$GPUParticles2D.emitting = true
 		var selected_laser_respawn = randomize_respawn($WeaponStartPositions)
 		on_laser_shot.emit(selected_laser_respawn.global_position, player_direction)
 		can_laser = false
