@@ -8,3 +8,6 @@ const speed = 1500
 func _ready():
 	physics_material_override.bounce = grenade_bounce_normalized
 	linear_damp = grenade_linear_damp
+
+func explode():
+	$AnimationPlayer.play("explosion")
