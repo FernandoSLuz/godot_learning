@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bpmwqtn3p3nv7" path="res://graphics/enemies/drone.png" id="1_llhmx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_67wwq"]
-radius = 35.0143
+radius = 70.0071
 
 [node name="Drone" type="CharacterBody2D"]
 collision_layer = 2
@@ -13,7 +13,6 @@ script = ExtResource("1_aqap6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_llhmx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
