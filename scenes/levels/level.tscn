@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://5hilr1yqq22"]
+[gd_scene load_steps=19 format=3 uid="uid://5hilr1yqq22"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_p7r85"]
 [ext_resource type="PackedScene" uid="uid://bk704ydu2n8rx" path="res://scenes/objects/gate/gate.tscn" id="2_fpf2t"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b0h4wn77jo02d" path="res://graphics/tilesets/soil.png" id="10_c1ptt"]
 [ext_resource type="PackedScene" uid="uid://b471713evyao7" path="res://scenes/Houses/house.tscn" id="11_xo0ok"]
 [ext_resource type="PackedScene" uid="uid://ctl0jstgp5x6t" path="res://scenes/objects/SteamVent/steam_vent.tscn" id="12_b4teo"]
+[ext_resource type="PackedScene" uid="uid://ihgoprlp3s8c" path="res://scenes/objects/Light/LightFanAnimation/lignt_fan_animation.tscn" id="13_rqdpj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oa1w2"]
 resource_name = "walls"
@@ -107,12 +108,18 @@ rotation = -2.35962
 [node name="SteamVent" parent="Ground" instance=ExtResource("12_b4teo")]
 position = Vector2(-86, 624)
 
+[node name="LightFanAnimation" parent="Ground" instance=ExtResource("13_rqdpj")]
+position = Vector2(-1106, 1534)
+rotation = 0.785398
+scale = Vector2(0.75, 0.75)
+autoplay = "default"
+
 [node name="Gate" parent="." instance=ExtResource("2_fpf2t")]
 
 [node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_w5vlh")]
-position = Vector2(342, 464)
+position = Vector2(574, 645)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 2)
@@ -120,6 +127,8 @@ zoom = Vector2(0.6, 0.6)
 limit_top = -600
 position_smoothing_enabled = true
 
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_player_exited_gate"]
 [connection signal="on_grenade_shot" from="Player" to="." method="_on_player_grenade_shot"]
