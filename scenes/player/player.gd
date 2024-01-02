@@ -12,7 +12,10 @@ var speed: int = max_speed
 func _process(_delta):
 	#input
 	var direction = Input.get_vector("left","right","up","down")
-	velocity = direction * speed
+	var sprint_multiplier = 1.0
+	if(Input.is_action_pressed("sprint") and speed == max_speed):
+		sprint_multiplier = 1.5
+	velocity = direction * (speed * sprint_multiplier)
 	move_and_slide()
 	
 	#rotate
