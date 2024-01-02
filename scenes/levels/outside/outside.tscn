@@ -112,7 +112,6 @@ position = Vector2(-86, 624)
 position = Vector2(-1106, 1534)
 rotation = 0.785398
 scale = Vector2(0.75, 0.75)
-autoplay = "default"
 
 [node name="Gate" parent="." index="1" instance=ExtResource("2_ahhww")]
 
