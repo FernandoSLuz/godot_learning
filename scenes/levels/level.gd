@@ -1,16 +1,8 @@
 extends Node2D
+class_name LevelParent
 
 var laser_scene: PackedScene = preload("res://scenes/projectiles/laser/laser.tscn")
 var grenade_scene: PackedScene	= preload("res://scenes/projectiles/grenade/grenade.tscn")
-
-
-func _on_player_entered_gate(_body):
-	var tween = create_tween()
-	tween.tween_property($Player, "speed", 0, 0.5)
-
-func _on_player_exited_gate(body):
-	if(body.name == 'Player'):
-		print("body has exited: ", body)
 
 func _on_player_laser_shot(respawn_position: Vector2, laser_direction: Vector2):
 	var laser = laser_scene.instantiate() as Area2D
