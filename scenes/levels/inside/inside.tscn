@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://crb7j40v32ala"]
+[gd_scene load_steps=15 format=3 uid="uid://crb7j40v32ala"]
 
 [ext_resource type="PackedScene" uid="uid://5hilr1yqq22" path="res://scenes/levels/level.tscn" id="1_1mvdk"]
 [ext_resource type="Script" path="res://scenes/levels/inside/inside.gd" id="2_buaur"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dacuqw5uslw8s" path="res://graphics/lights/overlays/lattice.png" id="6_5nvpd"]
 [ext_resource type="PackedScene" uid="uid://ceq66qojfnlyd" path="res://scenes/objects/Light/WallLight/wall_light.tscn" id="8_xax7x"]
 [ext_resource type="PackedScene" uid="uid://gqvp4tkp7f6b" path="res://scenes/objects/Light/SimpleLight/simple_light.tscn" id="9_vvyye"]
+[ext_resource type="PackedScene" uid="uid://sr1phiiie145" path="res://scenes/Items/item.tscn" id="13_ls7tk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al887"]
 size = Vector2(362, 733)
@@ -45,8 +46,10 @@ color = Color(0.572549, 0.686275, 0.466667, 0.658824)
 energy = 3.32
 texture = ExtResource("4_7m5a1")
 
-[node name="Overlay" type="Node2D" parent="Lights" index="0"]
+[node name="Lights" parent="." index="3"]
 metadata/_edit_lock_ = true
+
+[node name="Overlay" type="Node2D" parent="Lights" index="0"]
 
 [node name="Hole" type="Sprite2D" parent="Lights/Overlay" index="0"]
 visible = false
@@ -91,7 +94,6 @@ scale = Vector2(3.19912, 3.19912)
 texture = ExtResource("6_5nvpd")
 
 [node name="Animated" type="Node2D" parent="Lights" index="1"]
-metadata/_edit_lock_ = true
 
 [node name="LightFanAnimation" parent="Lights/Animated" index="0" instance=ExtResource("4_8l3cn")]
 position = Vector2(-216, -200)
@@ -383,7 +385,6 @@ position = Vector2(1240, -920)
 rotation = -3.14159
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights" index="3"]
-visible = false
 color = Color(0.521569, 0.596078, 0.443137, 1)
 blend_mode = 1
 
@@ -393,6 +394,9 @@ position = Vector2(3946, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(83, 0)
 shape = SubResource("RectangleShape2D_al887")
+
+[node name="Item" parent="." index="5" instance=ExtResource("13_ls7tk")]
+position = Vector2(3141, 249)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]
 [connection signal="body_exited" from="ExitGateArea" to="." method="_on_exit_gate_area_body_exited"]
