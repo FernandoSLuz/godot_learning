@@ -10,12 +10,14 @@ func _on_player_laser_shot(respawn_position: Vector2, laser_direction: Vector2):
 	laser.rotation_degrees = rad_to_deg(laser_direction.angle())+90
 	laser.direction = laser_direction
 	$Projectiles.add_child(laser)
+	$UI.update_laser_text()
 
 func _on_player_grenade_shot(respawn_position: Vector2, grenade_direction: Vector2):
 	var grenade = grenade_scene.instantiate() as RigidBody2D
 	grenade.position = respawn_position
 	grenade.linear_velocity = grenade_direction * grenade.speed
 	$Projectiles.add_child(grenade)
+	$UI.update_grenade_text()
 
 
 func _on_house_player_entered():
