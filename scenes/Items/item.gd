@@ -3,7 +3,7 @@ extends Area2D
 var rotation_speed: int = 4
 var available_options = [
 	{'name': 'laser', 'weight': 4},
-	{'name': 'grenade', 'weight': 1},
+	{'name': 'grenade', 'weight': 100},
 	{'name': 'health', 'weight': 1}
 ]
 @onready var type = randomize_based_on_weight()
@@ -26,14 +26,14 @@ func _ready():
 func _process(delta):
 	rotation += rotation_speed * delta
 
-func _on_body_entered(body):
-	if type == 'laser' and Globals.laser_current_amount < 20:
-		body.add_item(type)
+func _on_body_entered(_body):
+	if type == 'laser' and Globals.laser_current_amount < Globals.laser_max_amount:
+		Globals.laser_current_amount = min(Globals.laser_current_amount + 5, Globals.laser_max_amount)
 		queue_free()
-	elif type == 'grenade' and Globals.grenade_current_amount < 5:
-		body.add_item(type)
+	elif type == 'grenade' and Globals.grenade_current_amount < Globals.grenade_max_amount:
+		Globals.grenade_current_amount = min(Globals.grenade_current_amount + 2, Globals.grenade_max_amount)
 		queue_free()
-	elif type == 'health':
-		body.add_item(type)
+	elif type == 'health' and Globals.health_current_amount < Globals.health_max_amount:
+		Globals.health_current_amount = min(Globals.health_current_amount + 10, Globals.health_max_amount)
 		queue_free()
 
