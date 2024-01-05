@@ -1,8 +1,7 @@
 extends StaticBody2D
 class_name ItemContainer
 
-func _ready():
-	print('object was created: ', name)
+@onready var current_direction: Vector2 = Vector2.UP.rotated(rotation)
+var opened: bool = false
 
-func hit():
-	print('objects')
+signal open(pos, direction)
