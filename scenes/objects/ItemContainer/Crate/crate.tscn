@@ -8,13 +8,63 @@
 [node name="Crate" instance=ExtResource("1_1xfcr")]
 script = ExtResource("2_xcny5")
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="BaseSprite" parent="." index="0"]
 texture = ExtResource("2_2uxh5")
 
-[node name="Sprite2D2" type="Sprite2D" parent="." index="1"]
-position = Vector2(1, -26)
+[node name="LidSprite" parent="." index="1"]
+position = Vector2(0, 13)
 texture = ExtResource("3_nfcp8")
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(3, 16)
-polygon = PackedVector2Array(-176, -124, 172, -124, 177, -116, 177, 3, 154, 38, -158, 38, -182, 1, -183, -116)
+position = Vector2(0, 35)
+polygon = PackedVector2Array(-185, -123, 182, -123, 202, -103, 202, 41, 189, 56, 158, 56, 155, 59, -156, 59, -163, 55, -192, 55, -201, 45, -203, -108)
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPositions" index="1"]
+position = Vector2(-127, -82)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPositions" index="2"]
+position = Vector2(-57, -99)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPositions" index="3"]
+position = Vector2(-124, -18)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPositions" index="4"]
+position = Vector2(-88, -54)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPositions" index="5"]
+position = Vector2(-52, -18)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnPositions" index="6"]
+position = Vector2(-24, -50)
+
+[node name="Marker2D8" type="Marker2D" parent="SpawnPositions" index="7"]
+position = Vector2(-17, -90)
+
+[node name="Marker2D9" type="Marker2D" parent="SpawnPositions" index="8"]
+position = Vector2(29, -62)
+
+[node name="Marker2D10" type="Marker2D" parent="SpawnPositions" index="9"]
+position = Vector2(45, -92)
+
+[node name="Marker2D11" type="Marker2D" parent="SpawnPositions" index="10"]
+position = Vector2(103, -49)
+
+[node name="Marker2D12" type="Marker2D" parent="SpawnPositions" index="11"]
+position = Vector2(134, -83)
+
+[node name="Marker2D13" type="Marker2D" parent="SpawnPositions" index="12"]
+position = Vector2(109, -98)
+
+[node name="Marker2D14" type="Marker2D" parent="SpawnPositions" index="13"]
+position = Vector2(62, -15)
+
+[node name="Marker2D15" type="Marker2D" parent="SpawnPositions" index="14"]
+position = Vector2(137, -18)
+
+[node name="Marker2D16" type="Marker2D" parent="SpawnPositions" index="15"]
+position = Vector2(-157, -53)
+
+[node name="Marker2D17" type="Marker2D" parent="SpawnPositions" index="16"]
+position = Vector2(-159, -91)
