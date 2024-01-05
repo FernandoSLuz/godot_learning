@@ -8,10 +8,16 @@ var red: Color = Color(0.9,0,0,1)
 @onready var laser_icon: TextureRect = $LaserCounter/VBoxContainer/TextureRect
 @onready var grenade_label: Label = $GrenadeCounter/VBoxContainer/Label
 @onready var grenade_icon: TextureRect = $GrenadeCounter/VBoxContainer/TextureRect
+@onready var health_bar: TextureProgressBar = $MarginContainer/TextureProgressBar
 
 func _ready():
+	Globals.connect("stat_change", update_stat_text)
+	update_stat_text()
+
+func update_stat_text():
 	update_grenade_text()
 	update_laser_text()
+	update_health_text()
 
 func update_laser_text():
 	laser_label.text = str(Globals.laser_current_amount)
@@ -24,6 +30,9 @@ func update_grenade_text():
 	var current_color = get_color_based_on_percentage(Globals.grenade_current_amount, Globals.grenade_max_amount)
 	grenade_label.modulate = current_color
 	grenade_icon.modulate = current_color
+
+func update_health_text():
+	health_bar.value = Globals.health_current_amount
 	
 func get_color_based_on_percentage(current_value: float, max_value: float) -> Color:
 	var normalized_percentage = current_value/max_value
