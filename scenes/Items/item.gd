@@ -3,10 +3,13 @@ extends Area2D
 var rotation_speed: int = 4
 var available_options = [
 	{'name': 'laser', 'weight': 4},
-	{'name': 'grenade', 'weight': 100},
+	{'name': 'grenade', 'weight': 1},
 	{'name': 'health', 'weight': 1}
 ]
 @onready var type = randomize_based_on_weight()
+
+var direction: Vector2
+var distance: int = randi_range(150, 200)
 
 func randomize_based_on_weight() -> String:
 	var temp_options = []
@@ -22,6 +25,9 @@ func _ready():
 		$Sprite2D.modulate = Color.INDIAN_RED
 	elif type == 'health':
 		$Sprite2D.modulate = Color.LIME_GREEN
+	var target_pos = position + direction * distance
+	var movement_tween = create_tween()
+	movement_tween.tween_property(self, "position", target_pos, 0.5)
 
 func _process(delta):
 	rotation += rotation_speed * delta
