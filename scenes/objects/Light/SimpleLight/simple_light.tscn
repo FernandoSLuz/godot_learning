@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://gqvp4tkp7f6b"]
+[gd_scene load_steps=7 format=3 uid="uid://gqvp4tkp7f6b"]
 
+[ext_resource type="Script" path="res://scenes/objects/Light/light.gd" id="1_tcnlx"]
 [ext_resource type="Texture2D" uid="uid://ca4mnnrqot3uw" path="res://graphics/objects/light.png" id="1_vt23m"]
 [ext_resource type="Texture2D" uid="uid://dgxalvugjgs7k" path="res://graphics/lights/textures/circle.png" id="2_ectre"]
+[ext_resource type="PackedScene" uid="uid://bimcu45i0lss" path="res://scenes/player/PlayerTriggerZone/player_trigger_zone.tscn" id="3_blds6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ocdf"]
 radius = 17.0
@@ -13,6 +15,7 @@ polygon = PackedVector2Array(-76, 17, -76, -4, -72, -9, -65, -12, 67, -12, 72, -
 [node name="SimpleLight" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 11
+script = ExtResource("1_tcnlx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -23,11 +26,15 @@ texture = ExtResource("1_vt23m")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0, 0.901961, 0.901961, 1)
-energy = 8.0
+energy = 6.0
 shadow_enabled = true
 shadow_color = Color(0.564706, 0.52549, 1, 0.00392157)
 shadow_filter_smooth = 2.0
 texture = ExtResource("2_ectre")
+texture_scale = 0.75
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_2ynev")
+
+[node name="PlayerTriggerZone" parent="." instance=ExtResource("3_blds6")]
+visible = false

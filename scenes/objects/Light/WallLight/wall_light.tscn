@@ -1,15 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ceq66qojfnlyd"]
+[gd_scene load_steps=6 format=3 uid="uid://ceq66qojfnlyd"]
 
+[ext_resource type="Script" path="res://scenes/objects/Light/light.gd" id="1_t4nrb"]
 [ext_resource type="Texture2D" uid="uid://d2mw00gru5wh7" path="res://graphics/objects/wall_lamp.png" id="1_xkjyn"]
 [ext_resource type="Texture2D" uid="uid://dgxalvugjgs7k" path="res://graphics/lights/textures/circle.png" id="2_qflhs"]
+[ext_resource type="PackedScene" uid="uid://bimcu45i0lss" path="res://scenes/player/PlayerTriggerZone/player_trigger_zone.tscn" id="4_24k76"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_buj77"]
-polygon = PackedVector2Array(-231, 32, -230, -1, -220, -13, -215, -9, -214, 47, -246, 66, -248, 58, -229, 42, -227, 35)
+polygon = PackedVector2Array(-231, 32, -230, -1, -295, -80, -215, -9, -214, 47, 16, 50, 20, 62, -248, 58, -229, 42, -227, 35)
 
 [node name="WallLight" type="StaticBody2D"]
 scale = Vector2(0.5, 0.5)
 collision_layer = 4
 collision_mask = 11
+script = ExtResource("1_t4nrb")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(36, -84, 274, -83, 278, -80, 293, -79, 325, -73, 360, -52, 382, -28, 404, -1, 416, 13, 396, 61, 390, 70, 379, 74, 357, 75, 260, 75, 251, 78, 237, 81, 224, 76, -225, 74, -234, 77, -244, 80, -257, 77, -264, 72, -394, 71, -400, 62, -421, 15, -399, -14, -351, -63, -307, -80, -289, -80, -285, -84)
@@ -21,9 +24,8 @@ region_rect = Rect2(0, 0, 842.5, 170.5)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 color = Color(0.662745, 0.0117647, 0.796078, 1)
-energy = 8.0
+energy = 6.0
 shadow_enabled = true
-shadow_filter = 1
 shadow_filter_smooth = 1.0
 texture = ExtResource("2_qflhs")
 texture_scale = 4.0
@@ -35,3 +37,7 @@ occluder = SubResource("OccluderPolygon2D_buj77")
 position = Vector2(-7, 0)
 scale = Vector2(-1, 1)
 occluder = SubResource("OccluderPolygon2D_buj77")
+
+[node name="PlayerTriggerZone" parent="." instance=ExtResource("4_24k76")]
+visible = false
+scale = Vector2(2, 2)
