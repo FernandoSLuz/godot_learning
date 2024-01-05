@@ -10,13 +10,16 @@ script = ExtResource("2_l68lu")
 quantity = 1
 
 [node name="BaseSprite" parent="." index="0"]
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_ks1a5")
 
 [node name="LidSprite" parent="." index="1"]
 position = Vector2(0, 38)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_k05hk")
 
 [node name="CollisionShape2D" parent="." index="2"]
-polygon = PackedVector2Array(-100, -41, -91, -59, -102, -58, -111, -62, -118, -72, -117, -99, -111, -109, -93, -117, -89, -125, 91, -124, 94, -118, 106, -113, 117, -103, 118, -73, 113, -63, 102, -58, 94, -62, 91, -58, 101, -36, 101, 1, 92, 33, 56, 89, 26, 116, 0, 126, -34, 111, -65, 77, -91, 34, -99, 3)
+position = Vector2(-10, 17)
+polygon = PackedVector2Array(-69, -18, -68, -26, -65, -28, -66, -45, -58, -60, -70, -61, -74, -65, -78, -71, -78, -94, -70, -102, -59, -106, -58, -111, 77, -111, 79, -105, 87, -103, 94, -98, 98, -92, 98, -70, 94, -63, 86, -60, 81, -62, 78, -61, 84, -49, 85, -27, 88, -23, 86, -3, 75, 31, 63, 57, 50, 71, 33, 83, 10, 90, -10, 84, -34, 68, -46, 51, -66, -4)
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]
