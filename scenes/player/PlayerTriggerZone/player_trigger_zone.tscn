@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bimcu45i0lss"]
+
+[ext_resource type="Script" path="res://scenes/player/PlayerTriggerZone/player_trigger_zone.gd" id="1_bfdmh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exc6b"]
+radius = 2226.36
+
+[node name="PlayerTriggerZone" type="Area2D"]
+script = ExtResource("1_bfdmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_exc6b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
