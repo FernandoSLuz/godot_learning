@@ -7,6 +7,7 @@
 
 [node name="Toilet" instance=ExtResource("1_0yw4k")]
 script = ExtResource("2_l68lu")
+quantity = 1
 
 [node name="BaseSprite" parent="." index="0"]
 texture = ExtResource("2_ks1a5")
@@ -17,3 +18,5 @@ texture = ExtResource("4_k05hk")
 
 [node name="CollisionShape2D" parent="." index="2"]
 polygon = PackedVector2Array(-100, -41, -91, -59, -102, -58, -111, -62, -118, -72, -117, -99, -111, -109, -93, -117, -89, -125, 91, -124, 94, -118, 106, -113, 117, -103, 118, -73, 113, -63, 102, -58, 94, -62, 91, -58, 101, -36, 101, 1, 92, 33, 56, 89, 26, 116, 0, 126, -34, 111, -65, 77, -91, 34, -99, 3)
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]

@@ -1,4 +1,6 @@
 extends ItemContainer
 
+@export var quantity: int = 1
+
 func hit():
-	print(current_direction)
+	spawn_items(quantity, $SpawnPositions)

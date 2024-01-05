@@ -7,6 +7,7 @@
 
 [node name="Crate" instance=ExtResource("1_1xfcr")]
 script = ExtResource("2_xcny5")
+quantity = 5
 
 [node name="BaseSprite" parent="." index="0"]
 texture = ExtResource("2_2uxh5")
