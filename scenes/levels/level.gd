@@ -32,3 +32,8 @@ func _on_house_player_exited():
 	tween.set_parallel(true)
 	tween.tween_property($Player, "modulate:a", 1,1)
 	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.6,0.6), 1).set_trans(Tween.TRANS_SINE)
+
+
+func _on_player_update_stats():
+	$UI.update_laser_text()
+	$UI.update_grenade_text()
