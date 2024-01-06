@@ -25,3 +25,5 @@ var health_current_amount: float = 60:
 	set(value):
 		health_current_amount = value
 		stat_change.emit()
+		
+var player: CharacterBody2D
