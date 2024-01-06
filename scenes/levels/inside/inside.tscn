@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://crb7j40v32ala"]
+[gd_scene load_steps=32 format=3 uid="uid://crb7j40v32ala"]
 
 [ext_resource type="PackedScene" uid="uid://5hilr1yqq22" path="res://scenes/levels/level.tscn" id="1_1mvdk"]
 [ext_resource type="Script" path="res://scenes/levels/inside/inside.gd" id="2_buaur"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://te6uxhwd3702" path="res://graphics/objects/infestation/small_4.png" id="21_yuio0"]
 [ext_resource type="Texture2D" uid="uid://hrnpi1qrduy8" path="res://graphics/objects/infestation/spikes.png" id="22_got2o"]
 [ext_resource type="Texture2D" uid="uid://buc0u3abbtkb5" path="res://graphics/objects/infestation/corner.png" id="23_pm765"]
+[ext_resource type="PackedScene" uid="uid://dvardwy2ic14t" path="res://scenes/Enemies/Scout/scout.tscn" id="24_cmje0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al887"]
 size = Vector2(362, 733)
@@ -180,7 +181,6 @@ rotation = -0.785397
 [node name="Crate2" parent="Ground" index="7" instance=ExtResource("14_14ehe")]
 position = Vector2(893, 2118)
 rotation = 2.618
-scale = Vector2(1, 1)
 
 [node name="Bed" parent="Ground" index="8" instance=ExtResource("15_53joe")]
 position = Vector2(125, 586)
@@ -334,47 +334,63 @@ rotation = 2.61799
 texture = ExtResource("23_pm765")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Infestation" index="23"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D" index="0"]
 polygon = PackedVector2Array(1724, -3574, 1773, -3611, 1817, -3612, 1873, -3610, 1948, -3614, 2012, -3614, 2109, -3615, 2160, -3586, 2174, -3528, 2155, -3478, 2112, -3454, 2056, -3466, 2024, -3509, 1977, -3507, 1947, -3495, 1917, -3460, 1868, -3445, 1838, -3465, 1816, -3509, 1774, -3533, 1718, -3538)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="Infestation" index="24"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D2" index="0"]
 position = Vector2(183, 869)
 polygon = PackedVector2Array(2501, -3221, 2533, -3284, 2611, -3297, 2656, -3252, 2656, -3172, 2654, -3078, 2633, -3014, 2545, -3012, 2498, -3063, 2501, -3127, 2511, -3169)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="Infestation" index="25"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D3" index="0"]
 position = Vector2(183, 869)
 polygon = PackedVector2Array(2467, -3624, 2477, -3670, 2503, -3690, 2540, -3694, 2560, -3672, 2578, -3626, 2579, -3577, 2571, -3546, 2551, -3533, 2502, -3538, 2457, -3537, 2442, -3563, 2444, -3598)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="Infestation" index="26"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D4" index="0"]
 position = Vector2(183, 869)
 polygon = PackedVector2Array(2148, -2329, 2159, -2367, 2174, -2389, 2208, -2392, 2244, -2377, 2287, -2376, 2326, -2403, 2368, -2441, 2401, -2439, 2435, -2413, 2477, -2389, 2509, -2375, 2571, -2349, 2626, -2347, 2649, -2308, 2642, -2271, 2600, -2256, 2530, -2261, 2458, -2259, 2360, -2266, 2296, -2253, 2180, -2259, 2150, -2281)
 
 [node name="StaticBody2D5" type="StaticBody2D" parent="Infestation" index="27"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D5" index="0"]
 position = Vector2(183, 869)
 polygon = PackedVector2Array(824, -2440, 849, -2458, 884, -2444, 908, -2396, 982, -2337, 1105, -2304, 1203, -2314, 1248, -2338, 1277, -2336, 1293, -2301, 1269, -2274, 1160, -2251, 976, -2261, 876, -2265, 838, -2308, 835, -2365)
 
 [node name="StaticBody2D6" type="StaticBody2D" parent="Infestation" index="28"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D6" index="0"]
 position = Vector2(183, 869)
 polygon = PackedVector2Array(817, -3688, 831, -3703, 851, -3704, 868, -3687, 870, -3661, 888, -3651, 904, -3644, 911, -3629, 899, -3597, 878, -3583, 860, -3594, 852, -3613, 836, -3635, 819, -3651)
 
 [node name="StaticBody2D7" type="StaticBody2D" parent="Infestation" index="29"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D7" index="0"]
 position = Vector2(183, 869)
 polygon = PackedVector2Array(884, -4482, 933, -4492, 977, -4468, 997, -4428, 990, -4382, 960, -4349, 922, -4342, 866, -4365, 858, -4423)
 
 [node name="StaticBody2D8" type="StaticBody2D" parent="Infestation" index="30"]
+collision_layer = 4
+collision_mask = 11
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Infestation/StaticBody2D8" index="0"]
 position = Vector2(183, 869)
@@ -394,7 +410,10 @@ metadata/_edit_lock_ = true
 [node name="Projectiles" parent="." index="5"]
 metadata/_edit_lock_ = true
 
-[node name="Player" parent="." index="6"]
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("24_cmje0")]
+position = Vector2(2957, -296)
+
+[node name="Player" parent="." index="7"]
 position = Vector2(3589, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
@@ -402,7 +421,7 @@ color = Color(0.572549, 0.686275, 0.466667, 0.658824)
 energy = 3.32
 texture = ExtResource("4_7m5a1")
 
-[node name="Lights" parent="." index="7"]
+[node name="Lights" parent="." index="8"]
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights" index="0"]

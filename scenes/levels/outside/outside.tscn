@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b815h7pfsku33"]
+[gd_scene load_steps=20 format=3 uid="uid://b815h7pfsku33"]
 
 [ext_resource type="PackedScene" uid="uid://5hilr1yqq22" path="res://scenes/levels/level.tscn" id="1_e38wa"]
 [ext_resource type="Script" path="res://scenes/levels/outside/outside.gd" id="2_851wb"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b471713evyao7" path="res://scenes/Houses/house.tscn" id="11_dnyoa"]
 [ext_resource type="PackedScene" uid="uid://ctl0jstgp5x6t" path="res://scenes/objects/SteamVent/steam_vent.tscn" id="12_cinw6"]
 [ext_resource type="PackedScene" uid="uid://ihgoprlp3s8c" path="res://scenes/objects/Light/LightFanAnimation/lignt_fan_animation.tscn" id="13_frbnx"]
+[ext_resource type="PackedScene" uid="uid://dvardwy2ic14t" path="res://scenes/Enemies/Scout/scout.tscn" id="16_pyc2q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oa1w2"]
 resource_name = "walls"
@@ -52,6 +53,9 @@ sources/1 = SubResource("TileSetAtlasSource_4ythi")
 
 [node name="Outside" instance=ExtResource("1_e38wa")]
 script = ExtResource("2_851wb")
+
+[node name="Gate" parent="." index="1" instance=ExtResource("2_ahhww")]
+z_index = 1
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 z_index = -2
@@ -113,10 +117,10 @@ position = Vector2(-1106, 1534)
 rotation = 0.785398
 scale = Vector2(0.75, 0.75)
 
-[node name="Gate" parent="." index="1" instance=ExtResource("2_ahhww")]
-z_index = 1
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("16_pyc2q")]
+position = Vector2(974, 1335)
 
-[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
-[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
