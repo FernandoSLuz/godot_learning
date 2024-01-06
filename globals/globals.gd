@@ -18,12 +18,23 @@ var grenade_current_amount: float = 3:
 		grenade_current_amount = value
 		stat_change.emit()
 
+var damage_cooldown:bool = false
 var health_max_amount: float = 100
 var health_current_amount: float = 60:
 	get:
 		return health_current_amount
 	set(value):
-		health_current_amount = value
+		if value > health_current_amount:
+			health_current_amount = min(value, 100)
+		elif not damage_cooldown:
+			health_current_amount = value
+			damage_cooldown = true
+			player_invulnerable_time()
 		stat_change.emit()
-		
+
+
+func player_invulnerable_time():
+	await get_tree().create_timer(0.5).timeout
+	damage_cooldown = false
+
 var player: CharacterBody2D
