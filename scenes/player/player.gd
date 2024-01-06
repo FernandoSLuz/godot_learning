@@ -52,3 +52,6 @@ func _on_laser_timer_timeout():
 
 func _on_grenade_timer_timeout():
 	can_grenade = true
+
+func hit():
+	print('player was hit')

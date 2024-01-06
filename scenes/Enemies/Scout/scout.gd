@@ -35,3 +35,6 @@ func switch_respawn(node: Node2D) -> Marker2D:
 
 func _on_laser_cooldown_timeout():
 	can_laser = true
+	
+func hit():
+	print('scout was hit')
