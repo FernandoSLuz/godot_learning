@@ -27,7 +27,14 @@ position = Vector2(125, -31)
 [node name="Marker2D2" type="Marker2D" parent="LaserSpawnPositions"]
 position = Vector2(125, 9)
 
-[node name="LaserCooldown" type="Timer" parent="."]
+[node name="Timers" type="Node" parent="."]
+
+[node name="LaserCooldown" type="Timer" parent="Timers"]
 one_shot = true
 
-[connection signal="timeout" from="LaserCooldown" to="." method="_on_laser_cooldown_timeout"]
+[node name="DamageCooldown" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Timers/LaserCooldown" to="." method="_on_laser_cooldown_timeout"]
+[connection signal="timeout" from="Timers/DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
