@@ -9,6 +9,9 @@ var health: int = 30
 var look_speed: float = 4  # Determines how fast the enemy looks at the player
 var target_rotation: float # Target rotation in radians
 
+func _ready():
+	$Sprite2D.material.set_shader_parameter("progress", 0)
+
 func _process(delta):
 	if Globals.player and position.distance_to(Globals.player.position) < 1000:
 		look_mechanics(delta)
@@ -41,9 +44,11 @@ func hit():
 		if health <= 0:
 			queue_free()
 		$Timers/DamageCooldown.start(0.5)
+		$Sprite2D.material.set_shader_parameter("progress", 1)
 
 var damage_cooldown:bool = false
 func _on_damage_cooldown_timeout():
+	$Sprite2D.material.set_shader_parameter("progress", 0)
 	damage_cooldown = false
 	
 func _on_laser_cooldown_timeout():
