@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b815h7pfsku33"]
+[gd_scene load_steps=19 format=3 uid="uid://b815h7pfsku33"]
 
 [ext_resource type="PackedScene" uid="uid://5hilr1yqq22" path="res://scenes/levels/level.tscn" id="1_e38wa"]
 [ext_resource type="Script" path="res://scenes/levels/outside/outside.gd" id="2_851wb"]
@@ -15,7 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://b471713evyao7" path="res://scenes/Houses/house.tscn" id="11_dnyoa"]
 [ext_resource type="PackedScene" uid="uid://ctl0jstgp5x6t" path="res://scenes/objects/SteamVent/steam_vent.tscn" id="12_cinw6"]
 [ext_resource type="PackedScene" uid="uid://ihgoprlp3s8c" path="res://scenes/objects/Light/LightFanAnimation/lignt_fan_animation.tscn" id="13_frbnx"]
-[ext_resource type="PackedScene" uid="uid://sr1phiiie145" path="res://scenes/Items/item.tscn" id="16_55fu1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oa1w2"]
 resource_name = "walls"
@@ -55,6 +54,7 @@ sources/1 = SubResource("TileSetAtlasSource_4ythi")
 script = ExtResource("2_851wb")
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
+z_index = -2
 texture_repeat = 2
 position = Vector2(605, 662)
 texture = ExtResource("2_qpmcn")
@@ -62,6 +62,7 @@ region_enabled = true
 region_rect = Rect2(-5969.36, -1968.12, 10443.4, 6106.37)
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
+z_index = -1
 position = Vector2(575, 335)
 tile_set = SubResource("TileSet_ijukb")
 format = 2
@@ -113,9 +114,9 @@ rotation = 0.785398
 scale = Vector2(0.75, 0.75)
 
 [node name="Gate" parent="." index="1" instance=ExtResource("2_ahhww")]
+z_index = 1
 
-[node name="Item" parent="." index="5" instance=ExtResource("16_55fu1")]
-position = Vector2(1110, 786)
-
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
