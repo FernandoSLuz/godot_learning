@@ -5,7 +5,6 @@ signal laser(pos, direction)
 var can_laser: bool = true
 var health: int = 30
 
-# Add these new variables for smooth looking
 var look_speed: float = 4  # Determines how fast the enemy looks at the player
 var target_rotation: float # Target rotation in radians
 
