@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b815h7pfsku33"]
+[gd_scene load_steps=21 format=3 uid="uid://b815h7pfsku33"]
 
 [ext_resource type="PackedScene" uid="uid://5hilr1yqq22" path="res://scenes/levels/level.tscn" id="1_e38wa"]
 [ext_resource type="Script" path="res://scenes/levels/outside/outside.gd" id="2_851wb"]
@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b471713evyao7" path="res://scenes/Houses/house.tscn" id="11_dnyoa"]
 [ext_resource type="PackedScene" uid="uid://ctl0jstgp5x6t" path="res://scenes/objects/SteamVent/steam_vent.tscn" id="12_cinw6"]
 [ext_resource type="PackedScene" uid="uid://ihgoprlp3s8c" path="res://scenes/objects/Light/LightFanAnimation/lignt_fan_animation.tscn" id="13_frbnx"]
-[ext_resource type="PackedScene" uid="uid://bc2l2ku2rdgtw" path="res://scenes/Enemies/drone/drone.tscn" id="16_opy7y"]
+[ext_resource type="PackedScene" uid="uid://co1u41ic20lbm" path="res://scenes/Enemies/Car/car.tscn" id="16_bpbn7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oa1w2"]
 resource_name = "walls"
@@ -51,6 +51,12 @@ tile_size = Vector2i(390, 390)
 sources/0 = SubResource("TileSetAtlasSource_oa1w2")
 sources/1 = SubResource("TileSetAtlasSource_4ythi")
 
+[sub_resource type="Curve2D" id="Curve2D_pgond"]
+_data = {
+"points": PackedVector2Array(-283.65, -244.131, 283.65, 244.131, 1858, 2312, 233.209, -650.293, -233.209, 650.293, 2306, 4326, 569.567, -313.935, -569.567, 313.935, 1498, 5980, 641.324, 197.33, -641.324, -197.33, -1757, 6759, -251.148, 1197.44, 251.148, -1197.44, -4026, 4358, -394.661, 96.4228, 394.661, -96.4228, -2772, 2924, -246.663, 825.2, 246.663, -825.2, -1975, 2140, -1004.59, 13.4543, 1004.59, -13.4543, -619, 1149, -218.663, -160.522, 218.663, 160.522, 1858, 2312)
+}
+point_count = 9
+
 [node name="Outside" instance=ExtResource("1_e38wa")]
 script = ExtResource("2_851wb")
 
@@ -60,10 +66,10 @@ z_index = 1
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 z_index = -2
 texture_repeat = 2
-position = Vector2(605, 662)
+position = Vector2(538, 2835)
 texture = ExtResource("2_qpmcn")
 region_enabled = true
-region_rect = Rect2(-5969.36, -1968.12, 10443.4, 6106.37)
+region_rect = Rect2(-2529.9, -2765.49, 18207, 11427.7)
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
 z_index = -1
@@ -106,7 +112,7 @@ position = Vector2(2177, -221)
 texture = ExtResource("10_n6vt1")
 
 [node name="House" parent="Ground" index="8" instance=ExtResource("11_dnyoa")]
-position = Vector2(-1167, 2662)
+position = Vector2(-672, 3550)
 rotation = -2.35962
 
 [node name="SteamVent" parent="Ground" index="9" instance=ExtResource("12_cinw6")]
@@ -117,8 +123,14 @@ position = Vector2(-1106, 1534)
 rotation = 0.785398
 scale = Vector2(0.75, 0.75)
 
-[node name="Drone" parent="Enemies" index="0" instance=ExtResource("16_opy7y")]
-position = Vector2(1733, 1222)
+[node name="CarPath" type="Path2D" parent="." index="10"]
+position = Vector2(126, -266)
+curve = SubResource("Curve2D_pgond")
+
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("16_bpbn7")]
+position = Vector2(2171.04, 2845.91)
+rotation = 1.20113
+progress = 623.8
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
