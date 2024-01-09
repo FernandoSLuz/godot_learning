@@ -4,8 +4,6 @@ var active: bool = false
 var speed: int = 300
 var vulnerable: bool = true
 var player_near: bool = false
-var look_speed: float = 4  # Determines how fast the enemy looks at the player
-var target_rotation: float # Target rotation in radians
 var health:int = 20
 
 func hit():
@@ -26,9 +24,7 @@ func _process(delta):
 	velocity = player_dir * speed
 	if active:
 		move_and_slide()
-		target_rotation = atan2(player_dir.y, player_dir.x)
-		# Interpolate the current rotation toward the target rotation
-		rotation = lerp_angle(rotation, target_rotation, look_speed * delta)
+		Globals.look_at_smoothly($".", Globals.player, delta)
 
 func _on_attack_area_2d_body_entered(_body):
 	player_near = true

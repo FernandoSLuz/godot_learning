@@ -192,21 +192,18 @@ sprite_frames = SubResource("SpriteFrames_2cwbt")
 animation = &"attack"
 
 [node name="NoticeArea2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea2D"]
 shape = SubResource("CircleShape2D_yh356")
 
 [node name="AttackArea2D" type="Area2D" parent="."]
-visible = false
 collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea2D"]
 shape = SubResource("CircleShape2D_5ym78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-6, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_i8pdr")
