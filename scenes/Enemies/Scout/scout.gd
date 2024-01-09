@@ -5,9 +5,6 @@ signal laser(pos, direction)
 var can_laser: bool = true
 var health: int = 30
 
-var look_speed: float = 4  # Determines how fast the enemy looks at the player
-var target_rotation: float # Target rotation in radians
-
 func _ready():
 	$Sprite2D.material.set_shader_parameter("progress", 0)
 
@@ -17,10 +14,7 @@ func _process(delta):
 		shoot_mechanics()
 
 func look_mechanics(delta):
-	var player_dir: Vector2 = (Globals.player.position - position).normalized()
-	target_rotation = atan2(player_dir.y, player_dir.x)
-	# Interpolate the current rotation toward the target rotation
-	rotation = lerp_angle(rotation, target_rotation, look_speed * delta)
+	Globals.look_at_smoothly($'.', Globals.player, delta)
 
 func shoot_mechanics():
 	if can_laser:
