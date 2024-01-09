@@ -14,7 +14,8 @@ func _process(delta):
 		shoot_mechanics()
 
 func look_mechanics(delta):
-	Globals.look_at_smoothly($'.', Globals.player, delta)
+	look_at(Globals.player.position)
+	#Globals.look_at_smoothly($'.', Globals.player, delta)
 
 func shoot_mechanics():
 	if can_laser:
