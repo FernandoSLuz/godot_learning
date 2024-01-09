@@ -41,7 +41,7 @@ var player: CharacterBody2D
 
 
 func look_at_smoothly(object, target, delta):
-	var target_dir: Vector2 = (target.position - object.position).normalized()
+	var target_dir: Vector2 = (target.global_position - object.global_position).normalized()
 	var look_speed: float = 4  # Determines how fast the enemy looks at the player
 	var target_rotation: float # Target rotation in radians
 	target_rotation = atan2(target_dir.y, target_dir.x)
