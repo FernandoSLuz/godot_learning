@@ -30,15 +30,16 @@ polygon = PackedVector2Array(-71, -48, -66, -46, -65, -51, -55, -58, -46, -57, -
 
 [node name="Player" type="CharacterBody2D" groups=["Entities"]]
 z_index = 2
+rotation = -0.0386939
 collision_mask = 31
 script = ExtResource("1_58xe8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-36, 1)
+position = Vector2(-0.499718, 6.50041)
 shape = SubResource("CircleShape2D_838bq")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(91, 19)
+position = Vector2(126.5, 24.5004)
 emitting = false
 process_material = SubResource("ParticleProcessMaterial_p4fb0")
 texture = ExtResource("3_rrc2f")
@@ -46,6 +47,7 @@ lifetime = 0.2
 one_shot = true
 
 [node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(35.5003, 5.50041)
 rotation = 1.5708
 texture = ExtResource("1_w8x8w")
 
@@ -58,6 +60,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="WeaponStartPositions" type="Node2D" parent="."]
+position = Vector2(35.5003, 5.50041)
 
 [node name="StartPosition1" type="Marker2D" parent="WeaponStartPositions"]
 position = Vector2(87, 12)
@@ -69,6 +72,7 @@ position = Vector2(92, 19)
 position = Vector2(87, 26)
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(35.5003, 5.50041)
 occluder = SubResource("OccluderPolygon2D_m804f")
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
