@@ -13,7 +13,7 @@ func _process(delta):
 		look_mechanics(delta)
 		shoot_mechanics()
 
-func look_mechanics(delta):
+func look_mechanics(_delta):
 	look_at(Globals.player.position)
 	#Globals.look_at_smoothly($'.', Globals.player, delta)
 
