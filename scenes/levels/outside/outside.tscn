@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b815h7pfsku33"]
+[gd_scene load_steps=25 format=3 uid="uid://b815h7pfsku33"]
 
 [ext_resource type="PackedScene" uid="uid://5hilr1yqq22" path="res://scenes/levels/level.tscn" id="1_e38wa"]
 [ext_resource type="Script" path="res://scenes/levels/outside/outside.gd" id="2_851wb"]
@@ -16,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://ctl0jstgp5x6t" path="res://scenes/objects/SteamVent/steam_vent.tscn" id="12_cinw6"]
 [ext_resource type="PackedScene" uid="uid://ihgoprlp3s8c" path="res://scenes/objects/Light/LightFanAnimation/lignt_fan_animation.tscn" id="13_frbnx"]
 [ext_resource type="PackedScene" uid="uid://co1u41ic20lbm" path="res://scenes/Enemies/Car/car.tscn" id="16_bpbn7"]
+[ext_resource type="PackedScene" uid="uid://dg4me5y8j85es" path="res://scenes/Enemies/Hunter/hunter.tscn" id="16_x0201"]
+[ext_resource type="PackedScene" uid="uid://dvardwy2ic14t" path="res://scenes/Enemies/Scout/scout.tscn" id="17_xjq4l"]
 [ext_resource type="PackedScene" uid="uid://bc2l2ku2rdgtw" path="res://scenes/Enemies/drone/drone.tscn" id="19_x88c5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oa1w2"]
@@ -258,7 +260,28 @@ rotation = 0.785398
 scale = Vector2(0.75, 0.75)
 
 [node name="Drone" parent="Enemies" index="0" instance=ExtResource("19_x88c5")]
-position = Vector2(715, 1691)
+position = Vector2(942, 2170)
+
+[node name="Drone2" parent="Enemies" index="1" instance=ExtResource("19_x88c5")]
+position = Vector2(2810, 883)
+
+[node name="Drone3" parent="Enemies" index="2" instance=ExtResource("19_x88c5")]
+position = Vector2(-86, 3038)
+
+[node name="Scout" parent="Enemies" index="3" instance=ExtResource("17_xjq4l")]
+position = Vector2(-770, 2529)
+
+[node name="Scout2" parent="Enemies" index="4" instance=ExtResource("17_xjq4l")]
+position = Vector2(-815, 3992)
+
+[node name="Scout3" parent="Enemies" index="5" instance=ExtResource("17_xjq4l")]
+position = Vector2(6132, 5976)
+
+[node name="Scout4" parent="Enemies" index="6" instance=ExtResource("17_xjq4l")]
+position = Vector2(6909, 2498)
+
+[node name="Hunter" parent="Enemies" index="7" instance=ExtResource("16_x0201")]
+position = Vector2(1337, 6497)
 
 [node name="CarPath" type="Path2D" parent="." index="10"]
 position = Vector2(126, -266)

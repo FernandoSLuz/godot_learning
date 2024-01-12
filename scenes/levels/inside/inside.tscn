@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://crb7j40v32ala"]
+[gd_scene load_steps=33 format=3 uid="uid://crb7j40v32ala"]
 
 [ext_resource type="PackedScene" uid="uid://5hilr1yqq22" path="res://scenes/levels/level.tscn" id="1_1mvdk"]
 [ext_resource type="Script" path="res://scenes/levels/inside/inside.gd" id="2_buaur"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://hrnpi1qrduy8" path="res://graphics/objects/infestation/spikes.png" id="22_got2o"]
 [ext_resource type="Texture2D" uid="uid://buc0u3abbtkb5" path="res://graphics/objects/infestation/corner.png" id="23_pm765"]
 [ext_resource type="PackedScene" uid="uid://dvardwy2ic14t" path="res://scenes/Enemies/Scout/scout.tscn" id="24_cmje0"]
+[ext_resource type="PackedScene" uid="uid://cbflrplwit3bw" path="res://scenes/Enemies/Bug/bug.tscn" id="25_ax6on"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al887"]
 size = Vector2(362, 733)
@@ -411,7 +412,31 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("24_cmje0")]
-position = Vector2(2790, -176)
+position = Vector2(88, 169)
+
+[node name="Scout2" parent="Enemies" index="1" instance=ExtResource("24_cmje0")]
+position = Vector2(610, 1703)
+
+[node name="Bug" parent="Enemies" index="2" instance=ExtResource("25_ax6on")]
+position = Vector2(1352, -1928)
+
+[node name="Bug7" parent="Enemies" index="3" instance=ExtResource("25_ax6on")]
+position = Vector2(2227, -853)
+
+[node name="Bug2" parent="Enemies" index="4" instance=ExtResource("25_ax6on")]
+position = Vector2(1921, -1722)
+
+[node name="Bug3" parent="Enemies" index="5" instance=ExtResource("25_ax6on")]
+position = Vector2(2332, -1942)
+
+[node name="Bug4" parent="Enemies" index="6" instance=ExtResource("25_ax6on")]
+position = Vector2(2307, -2770)
+
+[node name="Bug5" parent="Enemies" index="7" instance=ExtResource("25_ax6on")]
+position = Vector2(1915, -2558)
+
+[node name="Bug6" parent="Enemies" index="8" instance=ExtResource("25_ax6on")]
+position = Vector2(1352, -2970)
 
 [node name="Player" parent="." index="7"]
 position = Vector2(3589, 0)
