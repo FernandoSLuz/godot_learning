@@ -2,6 +2,8 @@ extends Node
 
 signal stat_change
 
+var player_hit_sound: AudioStreamPlayer2D
+var player: CharacterBody2D
 var laser_max_amount: float = 20
 var laser_current_amount: float = 10:
 	get:
@@ -30,15 +32,18 @@ var health_current_amount: float = 60:
 			health_current_amount = value
 			damage_cooldown = true
 			player_invulnerable_time()
+			player_hit_sound.global_position = player.global_position
+			player_hit_sound.play()
 		stat_change.emit()
 
+func _ready():
+	player_hit_sound = AudioStreamPlayer2D.new()
+	player_hit_sound.stream = load("res://audio/solid_impact.ogg")
+	add_child(player_hit_sound)
 
 func player_invulnerable_time():
 	await get_tree().create_timer(0.5).timeout
 	damage_cooldown = false
-
-var player: CharacterBody2D
-
 
 func look_at_smoothly(object, target, delta):
 	var target_dir: Vector2 = (target.global_position - object.global_position).normalized()
