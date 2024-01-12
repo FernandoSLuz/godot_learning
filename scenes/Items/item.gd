@@ -35,6 +35,9 @@ func _process(delta):
 	rotation += rotation_speed * delta
 
 func _on_body_entered(_body):
+	$AudioStreamPlayer2D.play()
+	$Sprite2D.hide()
+	await $AudioStreamPlayer2D.finished
 	if type == 'laser' and Globals.laser_current_amount < Globals.laser_max_amount:
 		Globals.laser_current_amount = min(Globals.laser_current_amount + 5, Globals.laser_max_amount)
 		queue_free()
