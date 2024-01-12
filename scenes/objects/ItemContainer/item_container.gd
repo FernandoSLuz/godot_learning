@@ -8,6 +8,7 @@ signal open(pos, direction)
 
 func spawn_items(quantity: int, spawn_positions: Node2D):
 	if not opened:
+		$AudioStreamPlayer2D.play()
 		opened = true
 		$LidSprite.hide()
 		for i in range(quantity):

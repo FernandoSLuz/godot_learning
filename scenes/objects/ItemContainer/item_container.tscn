@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b68kaw40u6x54"]
+[gd_scene load_steps=3 format=3 uid="uid://b68kaw40u6x54"]
 
 [ext_resource type="Script" path="res://scenes/objects/ItemContainer/item_container.gd" id="1_ijshs"]
+[ext_resource type="AudioStream" uid="uid://frjhljl5y5s0" path="res://audio/container_hit.mp3" id="2_lq4kb"]
 
 [node name="ItemContainer" type="StaticBody2D" groups=["Container"]]
 collision_layer = 4
@@ -15,3 +16,6 @@ script = ExtResource("1_ijshs")
 polygon = PackedVector2Array(-20, -6, -9, -18, 26, -18, 16, 11, 0, 18, -19, 13)
 
 [node name="SpawnPositions" type="Node2D" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lq4kb")
