@@ -411,7 +411,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="Scout" parent="Enemies" index="0" instance=ExtResource("24_cmje0")]
-position = Vector2(2957, -296)
+position = Vector2(2790, -176)
 
 [node name="Player" parent="." index="7"]
 position = Vector2(3589, 0)

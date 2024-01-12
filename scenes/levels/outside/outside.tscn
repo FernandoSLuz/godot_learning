@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://ctl0jstgp5x6t" path="res://scenes/objects/SteamVent/steam_vent.tscn" id="12_cinw6"]
 [ext_resource type="PackedScene" uid="uid://ihgoprlp3s8c" path="res://scenes/objects/Light/LightFanAnimation/lignt_fan_animation.tscn" id="13_frbnx"]
 [ext_resource type="PackedScene" uid="uid://co1u41ic20lbm" path="res://scenes/Enemies/Car/car.tscn" id="16_bpbn7"]
-[ext_resource type="PackedScene" uid="uid://dg4me5y8j85es" path="res://scenes/Enemies/Hunter/hunter.tscn" id="16_x0201"]
+[ext_resource type="PackedScene" uid="uid://bc2l2ku2rdgtw" path="res://scenes/Enemies/drone/drone.tscn" id="19_x88c5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oa1w2"]
 resource_name = "walls"
@@ -257,8 +257,8 @@ position = Vector2(-791, 4126)
 rotation = 0.785398
 scale = Vector2(0.75, 0.75)
 
-[node name="Hunter" parent="Enemies" index="0" instance=ExtResource("16_x0201")]
-position = Vector2(1908, 1352)
+[node name="Drone" parent="Enemies" index="0" instance=ExtResource("19_x88c5")]
+position = Vector2(715, 1691)
 
 [node name="CarPath" type="Path2D" parent="." index="10"]
 position = Vector2(126, -266)
