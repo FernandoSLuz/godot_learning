@@ -273,6 +273,5 @@ progress = 623.8
 navigation_polygon = SubResource("NavigationPolygon_q18j5")
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
-[connection signal="player_exited_gate" from="Gate" to="." method="_on_gate_player_exited_gate"]
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
