@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dg4me5y8j85es"]
+[gd_scene load_steps=22 format=3 uid="uid://dg4me5y8j85es"]
 
 [ext_resource type="Script" path="res://scenes/Enemies/Hunter/hunter.gd" id="1_2vqhf"]
 [ext_resource type="Texture2D" uid="uid://ntdgvptx12p" path="res://graphics/enemies/hunter/parts/torso.png" id="2_247g8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bt1yrtgml2myg" path="res://graphics/enemies/hunter/parts/leg_back_inner.png" id="6_mcmot"]
 [ext_resource type="Texture2D" uid="uid://01thaq5m8e6g" path="res://graphics/enemies/hunter/parts/claw.png" id="6_scf2s"]
 [ext_resource type="Texture2D" uid="uid://bmpjc82qpoe4e" path="res://graphics/enemies/hunter/parts/leg_back_outer.png" id="7_1nasb"]
+[ext_resource type="AudioStream" uid="uid://bjw82fjp816gk" path="res://audio/organic_impact.mp3" id="9_dcv5p"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_absh6"]
 radius = 28.0
@@ -248,7 +249,6 @@ position = Vector2(33, -10)
 rotation = -0.0256466
 scale = Vector2(0.999983, 0.999983)
 rest = Transform2D(0.777622, 0.628499, -0.628499, 0.777622, 33, -10)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="FrontRightLeg" type="Sprite2D" parent="Skeleton2D/Torso/FrontRightLeg"]
 position = Vector2(22, -36)
@@ -260,7 +260,6 @@ rest = Transform2D(0.162318, -0.986608, 0.986608, 0.162318, 44, -63)
 auto_calculate_length_and_angle = false
 length = 104.226
 bone_angle = -58.131
-metadata/_local_pose_override_enabled_ = true
 
 [node name="FrontRightClaw" type="Sprite2D" parent="Skeleton2D/Torso/FrontRightLeg/FrontRightClaw"]
 position = Vector2(47, -35)
@@ -271,7 +270,6 @@ position = Vector2(-31, -12)
 rotation = 0.0296571
 scale = Vector2(0.999931, 0.999931)
 rest = Transform2D(0.811975, -0.583436, 0.583436, 0.811975, -31, -12)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="FrontLeftLeg" type="Sprite2D" parent="Skeleton2D/Torso/FrontLeftLeg"]
 position = Vector2(-22, -36)
@@ -284,7 +282,6 @@ rest = Transform2D(0.115191, 0.993219, -0.993219, 0.115191, -44, -63)
 auto_calculate_length_and_angle = false
 length = 104.226
 bone_angle = -124.661
-metadata/_local_pose_override_enabled_ = true
 
 [node name="FrontLeftClaw" type="Sprite2D" parent="Skeleton2D/Torso/FrontLeftLeg/FrontLeftClaw"]
 position = Vector2(-46, -34)
@@ -326,7 +323,6 @@ flip_h = true
 [node name="BackRightLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(31, 23)
 rest = Transform2D(0.975051, -0.221483, 0.221483, 0.975051, 31, 23)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D2" type="Sprite2D" parent="Skeleton2D/Torso/BackRightLeg"]
 position = Vector2(18, 32)
@@ -338,7 +334,6 @@ rest = Transform2D(0.964764, 0.262732, -0.262732, 0.964764, 40, 67)
 auto_calculate_length_and_angle = false
 length = 125.231
 bone_angle = 67.4
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Torso/BackRightLeg/BackRightClaw"]
 position = Vector2(30, 47)
@@ -347,7 +342,6 @@ texture = ExtResource("7_1nasb")
 [node name="BackLeftLeg" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(-31, 23)
 rest = Transform2D(0.956795, 0.290259, -0.290259, 0.956795, -31, 23)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="BackLeftLeg" type="Sprite2D" parent="Skeleton2D/Torso/BackLeftLeg"]
 position = Vector2(-17, 33)
@@ -360,7 +354,6 @@ rest = Transform2D(0.961241, -0.275209, 0.275209, 0.961241, -39, 71)
 auto_calculate_length_and_angle = false
 length = 125.231
 bone_angle = 114.185
-metadata/_local_pose_override_enabled_ = true
 
 [node name="BackLeftClaw" type="Sprite2D" parent="Skeleton2D/Torso/BackLeftLeg/BackLeftClaw"]
 position = Vector2(-32, 44)
@@ -385,6 +378,9 @@ position = Vector2(-198, 134)
 libraries = {
 "": SubResource("AnimationLibrary_1s61r")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_dcv5p")
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]

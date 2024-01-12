@@ -47,6 +47,7 @@ func attack():
 		
 func hit():
 	if vulnerable:
+		$AudioStreamPlayer2D.play()
 		vulnerable = false
 		health -= 10
 		if(health <= 0):

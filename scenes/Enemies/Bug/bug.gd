@@ -8,6 +8,7 @@ var health:int = 20
 
 func hit():
 	if vulnerable:
+		$AudioStreamPlayer2D.play()
 		health -= 10
 		$Particles/HitParticles.emitting = true
 		$AnimatedSprite2D.material.set_shader_parameter("progress", 1)

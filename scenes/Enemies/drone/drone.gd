@@ -30,6 +30,7 @@ func calculate_targets_distance():
 
 func hit(value:int = 10):
 	if vulnerable:
+		$Audios/Hit.play()
 		$Sprite2D.material.set_shader_parameter("progress", 1)
 		health -= value
 		if(health > 0):

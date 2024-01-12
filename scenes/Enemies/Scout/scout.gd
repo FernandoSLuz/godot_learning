@@ -33,6 +33,7 @@ func switch_respawn(node: Node2D) -> Marker2D:
 
 func hit():
 	if not damage_cooldown:
+		$AudioStreamPlayer2D.play()
 		damage_cooldown = true
 		health -= 10
 		if health <= 0:

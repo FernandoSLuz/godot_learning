@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvardwy2ic14t"]
+[gd_scene load_steps=7 format=3 uid="uid://dvardwy2ic14t"]
 
 [ext_resource type="Texture2D" uid="uid://bjrmtigjo854n" path="res://graphics/enemies/scout.png" id="1_ds88b"]
 [ext_resource type="Script" path="res://scenes/Enemies/Scout/scout.gd" id="1_p2eis"]
 [ext_resource type="Shader" path="res://scenes/Enemies/Scout/scout.gdshader" id="2_akrbu"]
+[ext_resource type="AudioStream" uid="uid://32hh3ph4t458" path="res://audio/solid_impact.ogg" id="4_fpitp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_owube"]
 shader = ExtResource("2_akrbu")
@@ -42,6 +43,9 @@ one_shot = true
 [node name="DamageCooldown" type="Timer" parent="Timers"]
 wait_time = 0.5
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_fpitp")
 
 [connection signal="timeout" from="Timers/LaserCooldown" to="." method="_on_laser_cooldown_timeout"]
 [connection signal="timeout" from="Timers/DamageCooldown" to="." method="_on_damage_cooldown_timeout"]
